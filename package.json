@@ -4,7 +4,59 @@
   "description": "Express server template",
   "main": "index.js",
   "repository": "git@github.com:GuruDeViaje/express-server-template.git",
-  "author": "gurudeviaje.com",
+  "contributors": [
+    {
+      "name": "Julio Moreno",
+      "email": "julio.moreno@gurudeviaje.com"
+    },
+    {
+      "name": "Israel Garcia",
+      "email": "israel.garcia@gurudeviaje.com"
+    },
+    {
+      "name": "Sadot Cortes",
+      "email": "sadot.cortes@gurudeviaje.com"
+    }
+  ],
+  "scripts": {
+    "serve": "NODE_ENV=production node src/index.js",
+    "dev": "NODE_ENV=development node src/index.js",
+    "test": "NODE_ENV=test jest --detectOpenHandles",
+    "eslint": "eslint src/**/*.js --ignore-pattern \"node_modules/\""
+  },
   "license": "MIT",
-  "private": true
+  "private": true,
+  "lint-staged": {
+    "**/*.+(js)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.+(json|md|css|yaml|yml|js)": [
+      "prettier --write \"**/*.{json,md,css,yaml,yml,js,jsx}\"",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.1.0",
+    "husky": "^2.3.0",
+    "jest": "^24.8.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.12",
+    "morgan": "^1.9.1",
+    "swagger-ui-express": "^4.0.5"
+  }
 }
