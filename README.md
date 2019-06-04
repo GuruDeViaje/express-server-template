@@ -1,6 +1,6 @@
 # Express server template
 
-Greate express template with:
+Create express template with:
 
 ⚔️ **Dependencies**
 
