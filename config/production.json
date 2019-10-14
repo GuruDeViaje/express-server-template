@@ -1,5 +1,4 @@
 {
-  "name": "Server Production",
-  "database": "",
-  "port": "3000"
+  "api_version": 1,
+  "env": "production"
 }
