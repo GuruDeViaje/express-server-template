@@ -1,31 +1,36 @@
-# Express server template
+# Express Server Template
+---
 
-Create express template with:
+Based on [bulletproof project architecture](https://dev.to/santypk4/bulletproof-node-js-project-architecture-4epf).
 
-⚔️ **Dependencies**
+### How to use
+Choose "use this template" option on github repository page, after that, change some variables on **package.json** file to match with your project.
 
-- Body Parser
-- Config
-- Express
-- Mongoose
-- Morgan
-- Swagger ui express
+* Install dependencies:
 
-⌨️ **Dev Dependencies**
+```
+yarn install
+```
 
-- Eslint
-- plugin-eslint-node
-- babel-node
-- Prettier
-- Husky
-- lint-staged
-- Jest
-- Super test
+* Run the project:
 
-Specify the database url in each dev environment on config/ <folder>
+```
+yarn dev
+```
 
-To run in mode dev use: `$ npm run dev || yarn dev`
+* (Optional) Run test and coverage:
 
-To run in mode production use: `$ npm run serve || yarn serve`
+```
+yarn ci
+``` 
 
-To run in mode test use: `$ npm run test || yarn test`
+   *or* 
+
+```
+yarn ci-coverage
+```
+
+## Extra 
+
+* Env variables was on ```./config/*```, add new variables on this files.
+

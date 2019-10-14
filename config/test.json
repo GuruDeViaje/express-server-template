@@ -1,5 +1,11 @@
 {
-  "name": "Server Test",
-  "database": "",
-  "port": "8081"
+  "env": "test",
+  "port": 3002,
+  "api": {
+    "version": 1,
+    "prefix": "/api/v1"
+  },
+  "log": {
+    "level": "info"
+  }
 }
