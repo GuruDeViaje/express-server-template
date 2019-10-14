@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const config = require('config');
 const routes = require('../api');
+const logger = require('../loaders/logger');
 
 const expressLoader = async app => {
   try {
@@ -26,23 +27,9 @@ const expressLoader = async app => {
       next(err);
     });
 
-
-    /// error handlers
-    app.use((err, req, res, next) => {
-      /**
-       * Handle 401 thrown by auth
-       */
-      if (err.name === 'UnauthorizedError') {
-        return res
-          .status(err.status)
-          .send({ message: err.message })
-          .end();
-      }
-      return next(err);
-    });
-
     // eslint-disable-next-line no-unused-vars
     app.use((err, req, res, next) => {
+      if (err.name === 'UnauthorizedError') err.status = 401
       res.status(err.status || 500);
       res.json({
         errors: {
@@ -51,9 +38,8 @@ const expressLoader = async app => {
       });
     });
   } catch (error) {
-    console.log('ERROR', error);
+    logger.error(error);
   }
-
 };
 
 
